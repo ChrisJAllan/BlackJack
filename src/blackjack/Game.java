@@ -5,12 +5,14 @@
  */
 package blackjack;
 
+import blackjack.ui.WelcomeController;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -19,30 +21,34 @@ import javafx.stage.Stage;
  */
 public class Game extends Application
 {
-	
 	@Override
 	public void start(Stage primaryStage)
 	{
-		Button btn = new Button();
-		btn.setText("Say 'Hello World'");
-		btn.setOnAction(new EventHandler<ActionEvent>()
-		{
-			
-			@Override
-			public void handle(ActionEvent event)
-			{
-				System.out.println("Hello World!");
-			}
-		});
+		stage = primaryStage;
 		
-		StackPane root = new StackPane();
-		root.getChildren().add(btn);
+		showWelcome();
+	}
+	
+	public void showWelcome()
+	{
+		WelcomeController welcome = new WelcomeController(this);
 		
-		Scene scene = new Scene(root, 300, 250);
+		try {
+			welcome.run(stage);
+		}
+		catch (IOException ex) {
+			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+	
+	public void setPlayers(ArrayList<String> names)
+	{
+		System.out.println(names);
+	}
+	
+	public void showGameBoard()
+	{
 		
-		primaryStage.setTitle("Hello World!");
-		primaryStage.setScene(scene);
-		primaryStage.show();
 	}
 
 	/**
@@ -53,4 +59,5 @@ public class Game extends Application
 		launch(args);
 	}
 	
+	Stage stage;
 }

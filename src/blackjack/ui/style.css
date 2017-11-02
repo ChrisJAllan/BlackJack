@@ -1,0 +1,23 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.title {
+	-fx-font-size: 2em;
+}
+
+.subtitle {
+	-fx-font-size: 1.2em;
+}
+
+.playerNameBox {
+	-fx-hgrow: always;
+}
+
+.removePlayer {
+	-fx-text-fill: red;
+}
+
+HBox {
+	-fx-alignment: center;
+}

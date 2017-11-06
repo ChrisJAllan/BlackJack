@@ -31,11 +31,11 @@ import javafx.stage.Stage;
  */
 public class WelcomeController
 {
-	public WelcomeController(Game game)
+	public WelcomeController(Game game, ArrayList<String> names)
 	{
 		this.game = game;
 		
-		names = new ArrayList<>();
+		this.names = names;
 	}
 	
 	public void run(Stage stage) throws IOException
@@ -46,7 +46,8 @@ public class WelcomeController
 		
 		nameGrid = (GridPane) root.lookup("#nameGrid");
 		
-		addPlayer();
+		if (names.size() == 0) { addPlayer(); }
+		else { rebuildGrid(); }
 		
 		Scene scene = new Scene(root);
 		
@@ -64,11 +65,18 @@ public class WelcomeController
 	
 	@FXML private void startGame()
 	{
-		/* TODO:
-		 *   Check for empty
-		 *   Check for duplicates
-		 *   Check for zero score
-		 */
+		if (names.stream().filter(n -> { return n.equals(""); }).count() > 0) {
+			Alert error = new Alert(Alert.AlertType.ERROR, "Name cannot be empty.");
+			error.show();
+			return;
+		}
+		
+		if (names.stream().distinct().count() != names.size()) {
+			Alert error = new Alert(Alert.AlertType.ERROR, "Cannot have duplicate names.");
+			error.show();
+			return;
+		}
+		
 		game.setPlayers(names);
 	}
 	
@@ -99,7 +107,7 @@ public class WelcomeController
 			nameGrid.add(xContainer, 2, i);
 		}
 		
-		root.lookup("#addButton").setDisable(names.size() >= 4);
+		root.lookup("#addButton").setDisable(names.size() >= 3);
 		root.lookup("#startButton").setDisable(names.size() == 0);
 	}
 	

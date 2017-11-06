@@ -12,7 +12,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Stream;
 
 import javafx.application.Application;
 import javafx.scene.control.Alert;
@@ -59,6 +58,7 @@ public class Game extends Application
 			PlayerScore score = gameData.playerData.stream().filter(ps -> { return ps.name.equals(n); }).findAny().orElse(null);
 			if (score == null) {
 				score = new PlayerScore(n);
+				gameData.playerData.add(score);
 			}
 			players.add(new Player(score));
 		});

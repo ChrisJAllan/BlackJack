@@ -7,13 +7,11 @@ package blackjack.ui;
 
 import blackjack.Game;
 
-import chrisallan.util.Binding;
-
 import java.io.IOException;
 
 import java.util.ArrayList;
-
-import javafx.event.EventTarget;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,15 +36,20 @@ public class WelcomeController
 		this.names = names;
 	}
 	
-	public void run(Stage stage) throws IOException
+	public void run(Stage stage)
 	{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Welcome.fxml"));
 		loader.setController(this);
-		root = loader.load();
+		try {
+			root = loader.load();
+		}
+		catch (IOException ex) {
+			Logger.getLogger(WelcomeController.class.getName()).log(Level.SEVERE, null, ex);
+		}
 		
 		nameGrid = (GridPane) root.lookup("#nameGrid");
 		
-		if (names.size() == 0) { addPlayer(); }
+		if (names.isEmpty()) { addPlayer(); }
 		else { rebuildGrid(); }
 		
 		Scene scene = new Scene(root);

@@ -6,7 +6,7 @@
 package blackjack;
 
 import blackjack.io.*;
-import blackjack.ui.WelcomeController;
+import blackjack.ui.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -38,6 +38,8 @@ public class Game extends Application
 	
 	public void showWelcome()
 	{
+		stage.hide();
+		
 		WelcomeController welcome = new WelcomeController(this, gameData.lastPlayers);
 		
 		try {
@@ -101,20 +103,24 @@ public class Game extends Application
 					Alert.AlertType.ERROR,
 					String.format("Players %s are not eligible. (Score = 0)",
 								  sb.toString()));
-			error.show();
+			error.showAndWait();
 		}
 		else if (bad.length > 0) {
 			Alert error = new Alert(
 					Alert.AlertType.ERROR,
 					String.format("Player %s is not eligible. (Score = 0)", bad[0].getName()));
-			error.show();
+			error.showAndWait();
 		}
 		return (bad.length == 0);
 	}
 	
 	public void showGameBoard()
 	{
+		stage.hide();
 		
+		GameBoardController board = new GameBoardController(this, players);
+		
+		board.run(stage);
 	}
 	
 	private void loadData()
@@ -137,7 +143,7 @@ public class Game extends Application
 		gameData = new PersistentData();
 	}
 	
-	private void writeData()
+	public void writeData()
 	{
 		File file = new File(filename);
 		

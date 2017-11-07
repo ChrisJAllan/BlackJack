@@ -31,16 +31,24 @@ public class Dealer extends Player
 		if (getValue() > 21) {
 			playerPane.getStyleClass().add("bust");
 		}
+		
+		cardPane.getChildren().add(c.getNode());
 	}
 	
 	@Override
-	public void setUI(Pane cardPane, Pane playerPane, Button hitButton, Label label)
+	public void setUI(Pane cardPane, Pane playerPane, Button hitButton, Button standButton, Label label)
 	{
-		this.cardPane   = cardPane;
-		this.playerPane = playerPane;
-		this.hitButton  = hitButton;
-		this.label      = label;
+		this.cardPane    = cardPane;
+		this.playerPane  = playerPane;
+		this.hitButton   = hitButton;
+		this.standButton = standButton;
+		this.label       = label;
 		
 		label.setText(String.format("%s", getName()));
 	}
+	
+	@Override
+	public void startTurn() { }
+	@Override
+	public void endTurn() { }
 }

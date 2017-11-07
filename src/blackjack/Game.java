@@ -10,11 +10,11 @@ import blackjack.ui.*;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Optional;
 
 import javafx.application.Application;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 /**
@@ -42,18 +42,11 @@ public class Game extends Application
 		
 		WelcomeController welcome = new WelcomeController(this, gameData.lastPlayers);
 		
-		try {
-			welcome.run(stage);
-		}
-		catch (IOException ex) {
-			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
-		}
+		welcome.run(stage);
 	}
 	
 	public void setPlayers(ArrayList<String> names)
 	{
-		System.out.println(names);
-		
 		players = new ArrayList<>();
 		
 		names.forEach(n -> {
@@ -121,6 +114,27 @@ public class Game extends Application
 		GameBoardController board = new GameBoardController(this, players);
 		
 		board.run(stage);
+	}
+	
+	public void afterRound()
+	{
+		writeData();
+		
+		Alert change = new Alert(
+				Alert.AlertType.CONFIRMATION,
+				"Keep same players?",
+				ButtonType.YES,
+				ButtonType.NO);
+		
+		Optional<ButtonType> type = change.showAndWait();
+		
+		if (checkPlayers() && type.get() == ButtonType.YES) {
+			players.forEach((p) -> { p.clear(); });
+			showGameBoard();
+		}
+		else {
+			showWelcome();
+		}
 	}
 	
 	private void loadData()

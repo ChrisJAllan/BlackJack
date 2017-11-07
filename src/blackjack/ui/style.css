@@ -20,6 +20,7 @@
 
 HBox {
 	-fx-alignment: center;
+	-fx-spacing: 0.5em;
 }
 
 Label {
@@ -35,10 +36,11 @@ Label {
 	-fx-border-color: black;
 	-fx-border-width: 1px;
 }
+.active {
+	-fx-border-color: orange;
+}
 
 .cardBox {
-	-fx-alignment: center;
-	-fx-spacing: 0.5em;
 	-fx-padding: 1em;
 }
 

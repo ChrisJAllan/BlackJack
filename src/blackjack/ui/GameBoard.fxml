@@ -30,24 +30,20 @@
             <HBox alignment="CENTER" prefHeight="50.0">
                <children>
                   <Button id="player2Hit" mnemonicParsing="false" text="Hit" />
+                  <Button id="player2Stand" mnemonicParsing="false" onAction="#nextPlayer" text="Stand" />
                </children>
             </HBox>
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
          <children>
-            <VBox id="player0Area" alignment="CENTER" styleClass="playerBox" VBox.vgrow="ALWAYS">
+            <VBox id="player0Area" alignment="CENTER" prefHeight="500.0" styleClass="playerBox" VBox.vgrow="ALWAYS">
                <children>
                   <Label id="player0Text" text="Label" />
                   <HBox id="player0Box" prefHeight="100.0" prefWidth="200.0" styleClass="cardBox" VBox.vgrow="ALWAYS" />
-                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#stand" text="Stand" />
-                     </children>
-                  </HBox>
                </children>
             </VBox>
-            <VBox id="player1Area" alignment="CENTER" styleClass="playerBox" VBox.vgrow="ALWAYS">
+            <VBox id="player1Area" alignment="CENTER" prefHeight="500.0" styleClass="playerBox" VBox.vgrow="ALWAYS">
                <children>
                   <Label id="player1Text" text="Label" />
                   <HBox id="player1Box" prefHeight="100.0" prefWidth="200.0" styleClass="cardBox" VBox.vgrow="ALWAYS">
@@ -57,6 +53,7 @@
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <Button id="player1Hit" mnemonicParsing="false" text="Hit" />
+                        <Button id="player1Stand" mnemonicParsing="false" onAction="#nextPlayer" text="Stand" />
                      </children>
                   </HBox>
                </children>
@@ -81,6 +78,7 @@
             <HBox alignment="CENTER" prefHeight="50.0">
                <children>
                   <Button id="player3Hit" mnemonicParsing="false" text="Hit" />
+                  <Button id="player3Stand" mnemonicParsing="false" onAction="#nextPlayer" text="Stand" />
                </children>
             </HBox>
          </children>

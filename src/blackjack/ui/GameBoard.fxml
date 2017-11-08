@@ -14,7 +14,7 @@
    <children>
       <VBox id="player2Area" alignment="CENTER" prefHeight="200.0" prefWidth="300.0" styleClass="playerBox" HBox.hgrow="ALWAYS">
          <children>
-            <Label id="player2Text" text="Label" />
+            <Label id="player2Text" styleClass="subtitle" text="Label" />
             <GridPane id="player2Box" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <styleClass>
                   <String fx:value="player2" />
@@ -39,13 +39,13 @@
          <children>
             <VBox id="player0Area" alignment="CENTER" prefHeight="500.0" styleClass="playerBox" VBox.vgrow="ALWAYS">
                <children>
-                  <Label id="player0Text" text="Label" />
+                  <Label id="player0Text" styleClass="subtitle" text="Label" />
                   <HBox id="player0Box" prefHeight="100.0" prefWidth="200.0" styleClass="cardBox" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
             <VBox id="player1Area" alignment="CENTER" prefHeight="500.0" styleClass="playerBox" VBox.vgrow="ALWAYS">
                <children>
-                  <Label id="player1Text" text="Label" />
+                  <Label id="player1Text" styleClass="subtitle" text="Label" />
                   <HBox id="player1Box" prefHeight="100.0" prefWidth="200.0" styleClass="cardBox" VBox.vgrow="ALWAYS">
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -62,7 +62,7 @@
       </VBox>
       <VBox id="player3Area" alignment="CENTER" prefHeight="200.0" prefWidth="300.0" styleClass="playerBox" HBox.hgrow="ALWAYS">
          <children>
-            <Label id="player3Text" text="Label" />
+            <Label id="player3Text" styleClass="subtitle" text="Label" />
             <GridPane id="player3Box" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <styleClass>
                   <String fx:value="player3" />

@@ -20,4 +20,55 @@
 
 HBox {
 	-fx-alignment: center;
+	-fx-spacing: 0.5em;
 }
+
+Label {
+	-fx-text-alignment: center;
+}
+
+.root {
+	-fx-alignment: center;
+	-fx-background-color: #0B0;
+}
+
+.playerBox {
+	-fx-border-color: black;
+	-fx-border-width: 1px;
+}
+.active {
+	-fx-border-color: orange;
+}
+
+.cardBox {
+	-fx-padding: 1em;
+}
+
+.player2.cardBox,
+.player3.cardBox {
+	-fx-hgap: 1em;
+	-fx-vgap: 1em;
+}
+
+.card {
+	-fx-border-color: black;
+	-fx-border-radius: 0.5em;
+	-fx-border-width: 1px;
+	
+	-fx-background-color: white;
+	-fx-background-radius: 0.5em;
+}
+
+.card ImageView {
+	-fx-scale-x: 95%;
+	-fx-scale-y: 95%;
+}
+
+.bust {
+	-fx-background-color: red;
+}
+
+.winner {
+	-fx-background-color: gold;
+}
+
